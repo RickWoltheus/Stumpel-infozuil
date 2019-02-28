@@ -1,0 +1,1 @@
+# Stumpel-infozuil
