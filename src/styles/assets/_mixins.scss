@@ -1,4 +1,4 @@
-@import 'assets/variables';
+@import 'assets/variables.scss';
 
 // -----------------------------------------------------------------------------
 //
@@ -11,82 +11,23 @@
   font-style: $style;
 }
 
-@mixin font--secondary($weight: 300, $style: normal) {
+@mixin font--secondary() {
   font-family: $font--secondary;
-  font-weight: $weight;
-  font-style: $style;
 }
 
-@mixin font-size($size) {
-  font-size: #{$size}px;
-  font-size: #{$size / 10}rem;
-}
-
-@mixin h1 {
-  @include font-size($font-size--h1);
-  @include font--secondary(700);
-  line-height: $line-height--h1;
-  margin-bottom: 2rem;
+@mixin text-large {
+  @include font-size($font-size--body--large);
+  line-height: $line-height--body--large;
 
   @media #{$normal} {
-    @include font-size($desktop--font-size--h1);
-    line-height: $desktop--line-height--h1;
-    margin-bottom: 3rem;
+    @include font-size($desktop--font-size--body--large);
+    line-height: $desktop--line-height--body--large;
   }
 }
 
-@mixin h2 {
-  @include font-size($font-size--h2);
-  @include font--secondary(700);
-  line-height: $line-height--h2;
-  margin-bottom: 2rem;
-
-  @media #{$normal} {
-    @include font-size($desktop--font-size--h2);
-    line-height: $desktop--line-height--h2;
-    margin-bottom: 3rem;
-  }
-}
-
-@mixin h3 {
-  @include font-size($font-size--h3);
-  @include font--secondary(700);
-  line-height: $line-height--h3;
-  margin-bottom: 2rem;
-
-  @media #{$normal} {
-    @include font-size($desktop--font-size--h3);
-    line-height: $desktop--line-height--h3;
-  }
-}
-
-@mixin h4 {
-  @include font-size($font-size--h4);
-  @include font--secondary(700);
-  line-height: $line-height--h4;
-  margin-bottom: 1rem;
-
-  @media #{$normal} {
-    @include font-size($desktop--font-size--h4);
-    line-height: $desktop--line-height--h4;
-  }
-}
-
-@mixin body--regular {
-  @include font-size($font-size--body);
-  font-weight: 200;
-  line-height: $line-height--body;
-
-  @media #{$normal} {
-    @include font-size($desktop--font-size--body);
-    line-height: $desktop--line-height--body;
-  }
-}
-
-@mixin body--small {
+@mixin text-small {
   @include font-size($font-size--body--small);
   line-height: $line-height--body--small;
-  font-weight: 500;
 
   @media #{$normal} {
     @include font-size($desktop--font-size--body--small);
@@ -94,12 +35,80 @@
   }
 }
 
-@mixin body--large {
-  @include font-size($font-size--body--large);
-  line-height: $line-height--body--large;
+@mixin font-size($size) {
+  font-size: #{$size}px;
+  font-size: #{$size / 10}rem;
+}
 
-  @media #{$normal} {
-    @include font-size($desktop--font-size--body--large);
-    line-height: $desktop--line-height--body--large;
+// -----------------------------------------------------------------------------
+//
+// Flexbox
+//
+// -----------------------------------------------------------------------------
+
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin align-items($position: center) {
+  -webkit-box-align: $position;
+  -moz-box-align: $position;
+  -ms-flex-align: $position;
+  -webkit-align-items: $position;
+  align-items: $position;
+}
+
+// -----------------------------------------------------------------------------
+//
+// Buttons
+//
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+//
+// Custom
+//
+// -----------------------------------------------------------------------------
+
+@mixin vertical-center($position: relative, $rotate: 0) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate($rotate);
+  -ms-transform: translateY(-50%) rotate($rotate);
+  transform: translateY(-50%) rotate($rotate);
+}
+
+@mixin center-center($position: relative) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+
+@mixin image-stretch {
+  position: absolute;
+  top: -999.9rem;
+  right: -999.9rem;
+  bottom: -999.9rem;
+  left: -999.9rem;
+  margin: auto;
+  max-width: none;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+    clear: both;
   }
 }

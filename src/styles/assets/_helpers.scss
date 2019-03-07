@@ -1,0 +1,178 @@
+@import 'assets/variables.scss';
+
+// -----------------------------------------------------------------------------
+//
+// Padding
+//
+// -----------------------------------------------------------------------------
+
+// Top & bottom
+.padding--top-bottom--small {
+  padding: $padding--size-4 0;
+}
+
+.padding--top-bottom--medium {
+  padding: $padding--size-5 0;
+}
+
+.padding--top-bottom--large {
+  padding: $padding--size-6 0;
+}
+
+.padding--top-bottom--extra-large {
+  padding: $padding--size-7 0;
+}
+
+// Top
+.padding--top--small {
+  padding-top: $padding--size-4;
+}
+
+.padding--top--medium {
+  padding-top: $padding--size-5;
+}
+
+.padding--top--large {
+  padding-top: $padding--size-6;
+}
+
+.padding--top--extra-large {
+  padding: $padding--size-7 0;
+}
+
+// Bottom
+.padding--bottom--small {
+  padding-bottom: $padding--size-4;
+}
+
+.padding--bottom--medium {
+  padding-bottom: $padding--size-5;
+}
+
+.padding--bottom--large {
+  padding-bottom: $padding--size-6;
+}
+
+.padding--bottom--extra-large {
+  padding-bottom: $padding--size-7;
+}
+
+// -----------------------------------------------------------------------------
+//
+// Margin
+//
+// -----------------------------------------------------------------------------
+
+// Top & bottom
+.margin--top-bottom--small {
+  margin: $padding--size-4 0;
+}
+
+.margin--top-bottom--medium {
+  margin: $padding--size-5 0;
+}
+
+.margin--top-bottom--large {
+  margin: $padding--size-6 0;
+}
+
+// Top
+.margin--top--extra-small {
+  margin-top: $padding--size-3;
+}
+
+.margin--top--small {
+  margin-top: $padding--size-4;
+}
+
+.margin--top--medium {
+  margin-top: $padding--size-5;
+}
+
+.margin--top--large {
+  margin-top: $padding--size-6;
+}
+
+// Bottom
+.margin--bottom--extra-small {
+  margin-top: $padding--size-3;
+}
+
+.margin--bottom--small {
+  margin-bottom: $padding--size-4;
+}
+
+.margin--bottom--medium {
+  margin-bottom: $padding--size-5;
+}
+
+.margin--bottom--large {
+  margin-bottom: $padding--size-6;
+}
+
+// -----------------------------------------------------------------------------
+//
+// Other
+//
+// -----------------------------------------------------------------------------
+
+.align-right {
+  float: right;
+}
+
+.align-left {
+  float: left;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.divider { // use on a <hr className="divider"/>
+  border-bottom-color: #e7e7e7;
+  margin: 0;
+}
+
+.greyed-out {
+  color: $color--primary--lighter;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.as-input {
+  padding: $padding--size-2 $padding--size-3;
+  background: #f3f4f5;
+  border-radius: $border-radius--primary;
+  margin-bottom: 5px;
+}
+
+.clickable {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+.clearfix {
+  overflow: hidden;
+}
