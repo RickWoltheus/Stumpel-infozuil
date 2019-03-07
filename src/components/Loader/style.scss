@@ -1,0 +1,6 @@
+@import '../../styles/assets/variables';
+@import '../../styles/assets/mixins';
+
+.iz-loader {
+    @include center-center(absolute);
+}
