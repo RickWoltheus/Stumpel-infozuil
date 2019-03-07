@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import './style.scss'
+import './style.scss';
+
 class OverviewListItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  }
-  }
 
   render() {
     return (
@@ -16,7 +13,7 @@ class OverviewListItem extends Component {
         <p>{this.props.releaseDate}</p>
         <p>{this.props.description}</p>
       </div>
-     );
+    );
   }
 }
 

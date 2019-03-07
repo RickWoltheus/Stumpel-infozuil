@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Router ,Route, Link , Switch } from 'react-router-dom'
+import { Router, Route, Link, Switch } from 'react-router-dom';
 
-import Home from '../Home'
-import NotFound from '../NotFound'
+import Home from '../Home';
+import NotFound from '../NotFound';
 
 import './style.scss';
 
@@ -22,10 +22,10 @@ class App extends Component {
         </header>
 
         <main>
-            <Switch>
-              <Route strict exact path="/" component={Home} />
-              <Route component={NotFound} />
-            </Switch>
+          <Switch>
+            <Route strict exact path="/" component={Home} />
+            <Route component={NotFound} />
+          </Switch>
         </main>
       </div>
     );
