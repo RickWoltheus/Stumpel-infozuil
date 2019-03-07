@@ -10,8 +10,12 @@ class OverviewList extends Component {
   }
 
   client = contentful.createClient({
+<<<<<<< HEAD
     space: process.env.REACT_APP_CONTENFULL_SPACE_ID,
     accessToken: process.env.REACT_APP_ACCESS_TOKEN,
+=======
+    space: '7uxruoy0v5qq',
+>>>>>>> 2c1763b5e749579e53f02ec75a4905ba39970b84
   })
 
   componentDidMount() {
