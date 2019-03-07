@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from '../src/containers/App'
 import * as serviceWorker from './serviceWorker';
+
 import { Router } from "react-router";
 import createBrowserHistory from "history/createBrowserHistory";
+
+import './styles/main.scss';
+
+
 
 const history = createBrowserHistory()
 
