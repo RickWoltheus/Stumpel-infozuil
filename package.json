@@ -5,6 +5,7 @@
   "dependencies": {
     "babel-loader": "^8.0.5",
     "contentful": "^7.4.0",
+    "dotenv": "^6.2.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
