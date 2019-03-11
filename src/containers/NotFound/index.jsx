@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Empty } from 'antd'
 
 class NotFound extends Component {
-
-  render() {
-    return (<div>Page not found...</div>);
-  }
+    render() {
+        return <Empty description={'Page not found...'} />
+    }
 }
 
-export default NotFound;
+export default NotFound
