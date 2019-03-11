@@ -3,7 +3,7 @@ import * as contentful from 'contentful'
 import { OverviewListItem } from '../'
 
 import './style.scss'
-import { Spin, Empty } from 'antd'
+import { Spin, Empty, Input } from 'antd'
 
 class OverviewList extends Component {
     state = {
@@ -33,7 +33,12 @@ class OverviewList extends Component {
     }
 
     render() {
-        return <div>{this.renderList()}</div>
+        return (
+            <div>
+                <Input.Search placeholder={'search...'} />
+                {this.renderList()}
+            </div>
+        )
     }
 
     renderList() {
