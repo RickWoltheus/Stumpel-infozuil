@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
-import React, { Component } from 'react';
 
-import Home from '../Home';
-import NotFound from '../NotFound';
+import Home from '../Home'
+import NotFound from '../NotFound'
 
 import './style.scss'
 
@@ -47,33 +46,9 @@ class App extends Component {
         )
     }
 
-
     handleChangeTemp = () => {
         this.setState({ temp: this.state.temp + 1 })
     }
-
-  render() {
-    return (
-      <div className="App">
-        <header>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
-
-        <main>
-          <Switch>
-            <Route strict exact path="/" component={Home} />
-            <Route component={NotFound} />
-          </Switch>
-        </main>
-      </div>
-    );
-  }
 }
 
 export default App
