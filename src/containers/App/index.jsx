@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import Home from '../Home'
 import NotFound from '../NotFound'
 
 import './style.scss'
+import { Chrome } from '../../implementations'
 
 const defaultAppState = {
     temp: 1,
@@ -25,22 +26,14 @@ class App extends Component {
         return (
             <AppContext.Provider value={this.state}>
                 <div className="App">
-                    <header>
-                        <nav>
-                            <ul>
-                                <li>
-                                    <Link to="/">Home</Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </header>
-
-                    <main>
-                        <Switch>
-                            <Route strict exact path="/" component={Home} />
-                            <Route component={NotFound} />
-                        </Switch>
-                    </main>
+                    <Chrome>
+                        <main>
+                            <Switch>
+                                <Route strict exact path="/" component={Home} />
+                                <Route component={NotFound} />
+                            </Switch>
+                        </main>
+                    </Chrome>
                 </div>
             </AppContext.Provider>
         )
