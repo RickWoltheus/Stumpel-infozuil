@@ -8,10 +8,10 @@ import { withRouter } from 'react-router-dom'
 
 const config = [
     { name: 'home', link: '/', icon: iconType.home },
-    { name: 'home', link: '/other', icon: iconType.home },
-    { name: 'home', link: '/other2', icon: iconType.home },
-    { name: 'home', link: '/other3', icon: iconType.home },
-    { name: 'home', link: '/other4', icon: iconType.home },
+    { name: 'home', link: '/other', icon: 'environment' },
+    { name: 'home', link: '/other2', icon: 'phone' },
+    { name: 'home', link: '/other3', icon: 'eye' },
+    { name: 'home', link: '/other4', icon: 'filter' },
 ]
 
 const Chrome = withRouter(props => <NavigationComponent {...props} />)
@@ -49,12 +49,12 @@ class NavigationComponent extends Component {
 
     renderNavItems() {
         const currentPath = this.props.location.pathname
-        console.log(currentPath)
+
         return config.map(item => (
             <NavItem
                 label={item.name}
                 linkTo={item.link}
-                iconType={item.icone}
+                iconType={item.icon}
                 active={currentPath === item.link}
             />
         ))
