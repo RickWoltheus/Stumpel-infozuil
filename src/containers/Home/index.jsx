@@ -7,17 +7,12 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-      <AppContext.Consumer>
-        {({ temp, changeTemp }) => (
-
-          <div>Home
-
-            <button onClick={changeTemp}>count {temp} </button>
-          </div>
-
-        )}
-      </AppContext.Consumer>
-      <div><OverviewList /></div>
+        <AppContext.Consumer>
+          {({ temp, changeTemp }) => (
+            Home
+          )}
+        </AppContext.Consumer>
+        <div><OverviewList /></div>
       </React.Fragment>
     );
   }

@@ -7,6 +7,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin-top: 4px;
     }
 
     &__label {
@@ -15,6 +16,8 @@
     }
 
     &--is-active {
-        border-bottom: 2px solid #000000;
+      .iz-nav-item__label {
+        font-weight: bold;
+      }
     }
 }
