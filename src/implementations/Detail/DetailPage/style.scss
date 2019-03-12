@@ -1,0 +1,23 @@
+.iz-detail {
+    padding: 0px 12px 0px 12px;
+    &__showcase {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 343px;
+    }
+
+    &__image {
+        height: 100%;
+    }
+
+    &__meta {
+        color: #1a3d73;
+        font-size: 12px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 35px;
+    }
+}
