@@ -3,7 +3,7 @@ import * as contentful from 'contentful'
 import { OverviewListItem } from '../'
 
 import './style.scss'
-import { Spin, Empty, Input } from 'antd'
+import { Spin, Empty, Input, Col, Row } from 'antd'
 
 class OverviewList extends Component {
     state = {
@@ -34,9 +34,9 @@ class OverviewList extends Component {
 
     render() {
         return (
-            <div>
+            <div className={'iz-overviewList'}>
                 <Input.Search placeholder={'search...'} />
-                {this.renderList()}
+                <div className={'iz-overviewList__list'}>{this.renderList()}</div>
             </div>
         )
     }
@@ -45,7 +45,13 @@ class OverviewList extends Component {
         const { posts, loading } = this.state
 
         if (loading) {
-            return <Spin />
+            return (
+                <Row type="flex" align="middle">
+                    <Col>
+                        <Spin />
+                    </Col>
+                </Row>
+            )
         }
 
         if (!posts.length) {

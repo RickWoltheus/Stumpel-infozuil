@@ -2,194 +2,191 @@
 @import 'assets/mixins.scss';
 
 body {
-  @include font-size($font-size--body);
-  @include font--primary();
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: $color--black;
-  line-height: $line-height--body;
+    @include font-size($font-size--body);
+    @include font--primary();
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: $color--black;
+    line-height: $line-height--body;
 
-  @media #{$normal} {
-    @include font-size($desktop--font-size--body);
-    line-height: $desktop--line-height--body;
-  }
+    @media #{$normal} {
+        @include font-size($desktop--font-size--body);
+        line-height: $desktop--line-height--body;
+    }
 }
 
 h1,
 h2,
 h3,
 h4 {
-  margin: 0;
+    margin: 0;
 
-  a {
-    text-decoration: none;
-    font-weight: bold;
+    a {
+        text-decoration: none;
+        font-weight: bold;
 
-    &:hover {
-      text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
     }
-  }
 }
 
-h1, .asH1 {
-  @include font-size($font-size--h1);
-  @include font--primary(900);
-  line-height: $line-height--h1;
-  letter-spacing: -0.2px;
-  margin-bottom: 2rem;
+h1,
+.asH1 {
+    @include font-size($font-size--h1);
+    @include font--primary(900);
+    line-height: $line-height--h1;
+    letter-spacing: -0.2px;
+    margin-bottom: 2rem;
 
-  @media #{$normal} {
-    @include font-size($desktop--font-size--h1);
-    line-height: $desktop--line-height--h1;
-    margin-bottom: 4rem;
-  }
+    @media #{$normal} {
+        @include font-size($desktop--font-size--h1);
+        line-height: $desktop--line-height--h1;
+        margin-bottom: 4rem;
+    }
 }
 
-h2, .asH2 {
-  @include font-size($font-size--h2);
-  @include font--primary(900);
-  line-height: $line-height--h2;
-  margin-bottom: 1.5rem;
+h2,
+.asH2 {
+    @include font-size($font-size--h2);
+    @include font--primary(900);
+    line-height: $line-height--h2;
+    margin-bottom: 1.5rem;
 
-  @media #{$normal} {
-    @include font-size($desktop--font-size--h2);
-    line-height: $desktop--line-height--h2;
-    margin-bottom: 3rem;
-  }
+    @media #{$normal} {
+        @include font-size($desktop--font-size--h2);
+        line-height: $desktop--line-height--h2;
+        margin-bottom: 3rem;
+    }
 }
 
 h3 {
-  @include font-size($font-size--h3);
-  @include font--primary(900);
-  line-height: $line-height--h3;
-  letter-spacing: 0.1px;
-  margin-bottom: 1.2rem;
+    @include font-size($font-size--h3);
+    @include font--primary(900);
+    line-height: $line-height--h3;
+    letter-spacing: 0.1px;
+    margin-bottom: 1.2rem;
 
-  @media #{$normal} {
-    @include font-size($desktop--font-size--h3);
-    line-height: $desktop--line-height--h3;
-    margin-bottom: 2.4rem;
-  }
+    @media #{$normal} {
+        @include font-size($desktop--font-size--h3);
+        line-height: $desktop--line-height--h3;
+        margin-bottom: 2.4rem;
+    }
 }
 
 h4 {
-  @include font-size($font-size--h4);
-  @include font--primary(900);
-  line-height: $line-height--h4;
-  letter-spacing: 0.15px;
-  margin-bottom: 1rem;
+    @include font-size($font-size--h4);
+    @include font--primary(900);
+    line-height: $line-height--h4;
+    letter-spacing: 0.15px;
+    margin-bottom: 1rem;
 
-  @media #{$normal} {
-    @include font-size($desktop--font-size--h4);
-    line-height: $desktop--line-height--h4;
-    margin-bottom: 1.8rem;
-  }
+    @media #{$normal} {
+        @include font-size($desktop--font-size--h4);
+        line-height: $desktop--line-height--h4;
+        margin-bottom: 1.8rem;
+    }
 }
 
 p {
-  margin-bottom: 2.8rem;
-
-  @media #{$normal} {
-    margin-bottom: 3rem;
-  }
-
-  &.text-large,
-  .text-large & {
-    margin-bottom: 3rem;
+    margin-bottom: 2.8rem;
 
     @media #{$normal} {
-      margin-bottom: 3.8rem;
+        margin-bottom: 3rem;
     }
-  }
 
-  &.text-small,
-  .text-small & {
-    margin-bottom: 2.2rem;
+    &.text-large,
+    .text-large & {
+        margin-bottom: 3rem;
 
-    @media #{$normal} {
-      margin-bottom: 2.4rem;
+        @media #{$normal} {
+            margin-bottom: 3.8rem;
+        }
     }
-  }
+
+    &.text-small,
+    .text-small & {
+        margin-bottom: 2.2rem;
+
+        @media #{$normal} {
+            margin-bottom: 2.4rem;
+        }
+    }
 }
 
 a {
-  color: $color--black;
-  text-decoration: none;
-  font-weight: 500;
-
-  &:hover,
-  &:focus {
     color: $color--black;
-    text-decoration: underline;
-  }
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover,
+    &:focus {
+        color: $color--black;
+        text-decoration: underline;
+    }
 }
 
-ul, ol {
-  margin-bottom: 30px;
+ul,
+ol {
+    margin-bottom: 30px;
 
-  .text-large &
-  &.text-large {
-    margin-bottom: 38px;
-  }
-
-  .text-small &,
-  &.text-small {
-    margin-bottom: 24px;
-  }
-
-  li {
-    position: relative;
-    padding-left: 40px;
-    margin-bottom: 10px;
-
-    &:last-child {
-      margin-bottom: 0;
+    .text-large & &.text-large {
+        margin-bottom: 38px;
     }
 
-    &:before {
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-      color: $color--primary--lighter;
+    .text-small &,
+    &.text-small {
+        margin-bottom: 24px;
     }
-  }
+
+    li {
+        position: relative;
+        padding-left: 40px;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:before {
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            color: $color--primary--lighter;
+        }
+    }
 }
 
 ul {
-  list-style: none;
-
-  li:before {
-    content: "\2022";
-  }
+    list-style: none;
 }
 
 ol {
-  counter-reset:(numbered);
+    counter-reset: (numbered);
 
-  li {
-    display: block;
+    li {
+        display: block;
 
-    &:before {
-      content: counter(numbered);
-      counter-increment: numbered;
+        &:before {
+            content: counter(numbered);
+            counter-increment: numbered;
+        }
     }
-  }
 
-  &[type="A"] {
-    counter-reset: lower-alpha-counter;
+    &[type='A'] {
+        counter-reset: lower-alpha-counter;
 
-    li:before {
-      content: counter(lower-alpha-counter, lower-alpha);
-      counter-increment: lower-alpha-counter;
+        li:before {
+            content: counter(lower-alpha-counter, lower-alpha);
+            counter-increment: lower-alpha-counter;
+        }
     }
-  }
 }
 
 .text-large {
-  @include text-large();
+    @include text-large();
 }
 
 .text-small {
-  @include text-small();
+    @include text-small();
 }
-
