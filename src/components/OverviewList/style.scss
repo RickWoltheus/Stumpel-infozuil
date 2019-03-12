@@ -1,1 +1,7 @@
-
+.iz-overviewList {
+    &__list {
+        display: flex;
+        background-color: aqua;
+        overflow: scroll;
+    }
+}

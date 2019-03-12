@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Button from 'antd/lib/button'
-import { Drawer } from 'antd'
+import { Drawer, Icon } from 'antd'
 import './style.scss'
 import NavItem from '../NavItem'
 import { iconType } from './../../../components/Icon/Icon'
@@ -32,7 +31,9 @@ class NavigationComponent extends Component {
         return (
             <div className={'iz-navigation'}>
                 <div>
-                    <Button onClick={this.handleDrawerToggle}>Open drawer</Button>
+                    <div className={'iz-navigation__top-menu'} onClick={this.handleDrawerToggle}>
+                        <Icon type={'filter'} />
+                    </div>
                     <Drawer
                         visible={drawerVisable}
                         placement="left"
@@ -50,8 +51,9 @@ class NavigationComponent extends Component {
     renderNavItems() {
         const currentPath = this.props.location.pathname
 
-        return config.map(item => (
+        return config.map((item, index, array) => (
             <NavItem
+                key={`${index}-${array.length}`}
                 label={item.name}
                 linkTo={item.link}
                 iconType={item.icon}

@@ -12,7 +12,7 @@ class NavItem extends Component {
             <div className={this.getClassName()}>
                 <Link to={linkTo ? linkTo : '/'}>
                     <div className={'iz-nav-item__content'}>
-                        <Icon type={iconType ? iconType : 'alibaba'} style={{ fontSize: 32 }} />
+                        <Icon type={iconType ? iconType : 'alibaba'} style={{ fontSize: 18 }} />
                         <div className={'iz-nav-item__label'}>{label}</div>
                     </div>
                 </Link>
