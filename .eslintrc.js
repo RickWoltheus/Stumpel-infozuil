@@ -374,12 +374,6 @@ module.exports = {
     // Disallow shadowing of names such as arguments.
     "no-shadow-restricted-names": 2,
 
-    // Disallow use of undeclared variables unless mentioned in a /*global */ block.
-    "no-undef": 2,
-
-    // Disallow use of undefined when initializing variables.
-    "no-undef-init": 2,
-
     // Disallow Use of Chained Assignment Expressions.
     "no-multi-assign": 1,
 
