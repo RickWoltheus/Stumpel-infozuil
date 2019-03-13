@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Drawer, Icon } from 'antd'
 import './style.scss'
 import NavItem from '../NavItem'
 import { iconType } from './../../../components/Icon/Icon'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style.scss'
 
-import { Rate, InputNumber, Col, Row, Button, Spin, Empty } from 'antd'
+import { Rate, Col, Row, Button, Spin, Empty } from 'antd'
 import AvailabilityLabel from './../../../components/AvailabilityLabel/index'
 import { withRouter } from 'react-router-dom'
 import { getOneProduct } from '../../../service/ProductService'
@@ -54,12 +54,14 @@ class DetailPageComponent extends Component {
             )
         }
 
-        console.log(post)
-
         return (
             <div className="iz-detail">
                 <div className="iz-detail__showcase">
-                    <img className={'iz-detail__image'} src={post.bookCover.fields.file.url} />
+                    <img
+                        className={'iz-detail__image'}
+                        src={post.bookCover.fields.file.url}
+                        alt="detail"
+                    />
                 </div>
 
                 <div className="iz-detail__information">
