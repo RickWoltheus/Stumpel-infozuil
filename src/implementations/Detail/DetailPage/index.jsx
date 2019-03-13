@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import './style.scss'
-import * as contentful from 'contentful'
 
 import { Rate, InputNumber, Col, Row, Button, Spin, Empty } from 'antd'
 import AvailabilityLabel from './../../../components/AvailabilityLabel/index'
 import { withRouter } from 'react-router-dom'
+import { getOneProduct } from '../../../service/ProductService'
+import { generateBTWPrice } from './../../../utils/price'
 
 const DetailPage = withRouter(props => <DetailPageComponent {...props} />)
 
@@ -19,25 +20,10 @@ class DetailPageComponent extends Component {
         }
     }
 
-    client = contentful.createClient({
-        space: process.env.REACT_APP_CONTENFULL_SPACE_ID,
-        accessToken: process.env.REACT_APP_ACCESS_TOKEN,
-    })
-
     async componentDidMount() {
-        await this.fetchPosts().then(this.setPosts)
+        await getOneProduct(this.props.match.params.id).then(this.setPosts)
         this.setState({ loading: false })
     }
-
-    async setNewData() {
-        await this.fetchPosts().then(this.setPosts)
-    }
-
-    fetchPosts = () =>
-        this.client.getEntries({
-            'sys.id': this.props.match.params.redirectParam,
-            content_type: 'book',
-        })
 
     setPosts = response => {
         this.setState({
@@ -81,31 +67,31 @@ class DetailPageComponent extends Component {
                     <div className="iz-detail__meta">
                         {post.author[0].fields.title} | {post.bindingMethod} | {post.isbn}
                     </div>
-                    <Row type="flex">
+                    <Row type="flex" className={'iz-detail__rating'}>
                         <Rate />
                         <span>11 beoordelingen</span>
                     </Row>
                     <div>
-                        <AvailabilityLabel label={'available'} />
+                        <AvailabilityLabel available={post.available} />
                     </div>
                     <Row type="flex">
                         <Col span={12}>
-                            <div>
-                                € 19,99
-                                <br />
-                                <small>€ 18,34 (excl. btw)</small>
+                            <div className={'iz-detail__price'}>
+                                <p>€ {post.price}</p>
+                                <small className={'iz-detail__btwPrice'}>
+                                    € {generateBTWPrice(post.price)} (excl. btw)
+                                </small>
                             </div>
                         </Col>
-                        <Col span={12} align="right">
-                            <InputNumber size="large" min={1} max={100000} defaultValue={3} />
-                        </Col>
                     </Row>
-                    <Button type="primary" shape="round" icon="cart" size={'large'}>
+                    <Button type="primary" icon="cart" size={'large'} block>
                         In de winkelwagen
                     </Button>
 
-                    <h2>Beschrijving</h2>
-                    <p>{post.description}</p>
+                    <div className={'iz-detail__description-wrapper'}>
+                        <h2>Beschrijving</h2>
+                        <p>{post.description}</p>
+                    </div>
                 </div>
             </div>
         )
