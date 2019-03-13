@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from '../Home';
 import NotFound from '../NotFound';
+import Login from '../Login';
 
 import './style.scss';
 import { Chrome } from '../../implementations';
@@ -18,18 +19,25 @@ class App extends Component {
     super(props);
     this.state = {
       ...defaultAppState,
-      changeTemp: this.handleChangeTemp,
     };
   }
 
   render() {
+
+    const isLoggedIn = localStorage.getItem('isAuth');
+
+
     return (
       <AppContext.Provider value={this.state}>
         <div className="App">
           <Chrome>
             <main>
               <Switch>
-                <Route strict exact path="/" component={Home} />
+                { isLoggedIn === 'true'
+                  ? <Route strict path="/" component={Home} />
+                  : <Route strict path="/" component={Login} />
+                }
+
                 <Route component={NotFound} />
               </Switch>
             </main>

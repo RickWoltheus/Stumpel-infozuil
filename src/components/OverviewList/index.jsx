@@ -82,7 +82,7 @@ class OverviewList extends Component {
       );
     }
 
-    return posts.map(({ fields }, i) => <OverviewListItem key={i} {...fields} />);
+    return posts.map(({ fields }, i) => <OverviewListItem key={i} loading={loading} {...fields} />);
   }
 }
 
