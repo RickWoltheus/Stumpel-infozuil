@@ -26,15 +26,20 @@ class NavigationComponent extends Component {
   render() {
     const { children } = this.props;
     const { drawerVisible } = this.state;
+    const isLoggedIn = localStorage.getItem('isAuth');
 
-    return (
-      <div className="iz-navigation">
+    if (isLoggedIn === true) {
+      return (
+        <div className="iz-navigation">
 
-        <div className="iz-navigation__content">{children}</div>
+          <div className="iz-navigation__content">{children}</div>
 
-        <div className="iz-navigation__bottom">{this.renderNavItems()}</div>
-      </div>
-    );
+          <div className="iz-navigation__bottom">{this.renderNavItems()}</div>
+        </div>
+      );
+    } else {
+      return <div className="iz-navigation__content">{children}</div>;
+    }
   }
 
   renderNavItems() {

@@ -11,10 +11,12 @@ class OverviewListItem extends Component {
 
         <Card
           hoverable
+          loading={this.props.loading}
           cover={
             <img
               alt="example"
               src={bookCover ? bookCover.fields ? bookCover.fields.file.url : null : null}
+              height="100%"
             />
           }
         >
