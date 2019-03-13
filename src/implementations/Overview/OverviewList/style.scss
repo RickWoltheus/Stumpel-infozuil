@@ -1,0 +1,22 @@
+@import '../../../styles/assets/variables';
+@import '../../../styles/assets/mixins';
+
+.iz-overviewList {
+    padding: 20px 10px 0px 10px;
+    &__search {
+        padding-bottom: 20px;
+
+        .ant-input-suffix {
+            top: 16px;
+        }
+    }
+    &__list {
+        // display: flex;
+        // flex-direction: row;
+        justify-content: center;
+        overflow: scroll;
+    }
+    &--loading {
+        @include center-center(absolute);
+    }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AppContext } from './../App/index'
-import { OverviewList } from '../../components'
+import { OverviewList } from '../../implementations'
 
 class Home extends Component {
     render() {

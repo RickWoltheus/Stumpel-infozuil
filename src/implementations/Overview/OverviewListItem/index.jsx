@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 
 class OverviewListItem extends Component {
     render() {
-        const { title, bookCover } = this.props
+        const { title, bookCover, id } = this.props
 
         return (
             <div className="iz-overview-list-item">
-                <Link to={'/detail'}>
+                <Link to={`${id}/detail`}>
                     <Card
                         hoverable
                         cover={
