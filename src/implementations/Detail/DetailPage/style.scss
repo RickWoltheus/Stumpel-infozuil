@@ -1,0 +1,46 @@
+.iz-detail {
+    padding: 0px 12px 0px 12px;
+    &__showcase {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 343px;
+        box-shadow: 0 4px 2px -2px lightgrey;
+        margin-bottom: 12px;
+    }
+
+    &__image {
+        height: 100%;
+    }
+
+    &__meta {
+        color: #1a3d73;
+        font-size: 12px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 35px;
+    }
+
+    &__btwPrice {
+        color: #1a3d73;
+        font-size: 11px;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__price {
+        font-size: 25px;
+        color: #1a3d73;
+        padding: 18px 0 18px 0;
+    }
+
+    &__description-wrapper {
+        padding: 22px 0 22px 0;
+    }
+
+    &__rating {
+        padding-bottom: 12px;
+    }
+}

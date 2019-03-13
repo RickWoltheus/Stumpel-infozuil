@@ -1,0 +1,12 @@
+.iz-availabilityLabel {
+    display: inline-block;
+    padding: 0;
+    background-color: #20a800;
+    color: #ffffff;
+    padding: 0px 12px 0px 12px;
+    border-radius: 12px;
+
+    &--is-unavailable {
+        background-color: red;
+    }
+}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Drawer, Icon } from 'antd';
 import './style.scss';
 import NavItem from '../NavItem';
 import { iconType } from './../../../components/Icon/Icon';
@@ -15,12 +14,13 @@ const config = [
 const Chrome = withRouter((props) => <NavigationComponent {...props} />);
 
 class NavigationComponent extends Component {
-  constructor(props) {
-    super(props);
+  state = { drawerVisible: false }
 
-    this.state = {
-      drawerVisible: false,
-    };
+  handleDrawerToggle = () => {
+    const { drawerVisible } = this.state;
+    this.setState({
+      drawerVisible: !drawerVisible,
+    });
   }
 
   render() {
@@ -55,13 +55,6 @@ class NavigationComponent extends Component {
       />
     ));
   }
-
-    handleDrawerToggle = () => {
-      const { drawerVisible } = this.state;
-      this.setState({
-        drawerVisible: !drawerVisible,
-      });
-    }
 }
 
 export default Chrome;

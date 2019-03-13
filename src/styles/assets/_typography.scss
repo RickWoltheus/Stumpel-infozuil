@@ -87,33 +87,9 @@ h4 {
         margin-bottom: 1.8rem;
     }
 }
-
 p {
-    margin-bottom: 2.8rem;
-
-    @media #{$normal} {
-        margin-bottom: 3rem;
-    }
-
-    &.text-large,
-    .text-large & {
-        margin-bottom: 3rem;
-
-        @media #{$normal} {
-            margin-bottom: 3.8rem;
-        }
-    }
-
-    &.text-small,
-    .text-small & {
-        margin-bottom: 2.2rem;
-
-        @media #{$normal} {
-            margin-bottom: 2.4rem;
-        }
-    }
+    margin: 0;
 }
-
 a {
     color: $color--black;
     text-decoration: none;

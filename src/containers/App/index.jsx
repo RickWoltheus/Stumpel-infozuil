@@ -4,8 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import Home from '../Home';
 import NotFound from '../NotFound';
 import Login from '../Login';
+import Detail from '../Detail';
 
-import './style.scss';
 import { Chrome } from '../../implementations';
 
 const defaultAppState = {
@@ -34,10 +34,10 @@ class App extends Component {
             <main>
               <Switch>
                 { isLoggedIn === 'true'
-                  ? <Route strict path="/" component={Home} />
+                  ? <Route exact strict path="/" component={Home} />
                   : <Route strict path="/" component={Login} />
                 }
-
+                <Route path="/:id/detail" component={Detail} />
                 <Route component={NotFound} />
               </Switch>
             </main>
