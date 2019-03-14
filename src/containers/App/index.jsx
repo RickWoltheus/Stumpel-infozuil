@@ -10,7 +10,8 @@ import { Chrome } from '../../implementations';
 import Overview from '../Overview';
 
 const defaultAppState = {
-  temp: 1,
+  posts: [],
+  carousel: []
 };
 
 export const AppContext = React.createContext(defaultAppState);
@@ -27,9 +28,11 @@ class App extends Component {
 
     const isLoggedIn = localStorage.getItem('isAuth');
 
-
     return (
-      <AppContext.Provider value={this.state}>
+      <AppContext.Provider value={{
+        ...this.state,
+        onChangeValues: this.handleChangeValues
+      }}>
         <div className="App">
           <Chrome>
             <main>
@@ -49,8 +52,8 @@ class App extends Component {
     );
   }
 
-  handleChangeTemp = () => {
-    this.setState({ temp: this.state.temp + 1 });
+  handleChangeValues = (values) => {
+    this.setState(values);
   }
 }
 

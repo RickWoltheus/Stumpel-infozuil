@@ -7,7 +7,7 @@ class Overview extends Component {
   render() {
     return (
       <React.Fragment>
-        <AppContext.Consumer>{({ temp, changeTemp }) => Home}</AppContext.Consumer>
+        <AppContext.Consumer>{({ temp, changeTemp }) => Overview}</AppContext.Consumer>
         <div>
           <OverviewList />
         </div>

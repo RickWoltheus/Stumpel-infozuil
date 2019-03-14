@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 import './style.scss'
-import { Spin, Input, Col, Row } from 'antd'
+import { Row, Col, Spin, Empty, Carousel, Button, Card } from 'antd';
+
 
 class HomeView extends Component {
   constructor(props) {
@@ -10,20 +11,54 @@ class HomeView extends Component {
       loading: true,
       searchData: null,
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.setNewData = this.setNewData.bind(this)
+    // this.handleChange = this.handleChange.bind(this)
+    // this.setNewData = this.setNewData.bind(this)
   }
 
   render() {
+    const { posts, carousel } = this.props
+
     return (
-      <div className="iz-overviewList">
-        <Input.Search
+      <div className="iz-home">
+
+        <Carousel autoplay>
+          {carousel && carousel.map((item, i) => {
+            const src = item.fields.picture.fields.file.url
+            return (<img key={i} style={{ width: '100%' }} src={`https:${src}`} alt="carousel" />)
+          })}
+        </Carousel>
+        <Row type={'flex'} gutter={14} justify={'space-around'}>
+          <Col span={11}>
+            <Button type={'primary'} block>Categorieen</Button>
+          </Col>
+          <Col span={11}>
+            <Button type={'primary'} block>Inloggen</Button>
+          </Col>
+        </Row>
+        <HorizontalScrollList>
+          {posts.map(post => (
+            <Card
+              hoverable
+              style={{ width: 240 }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Card.Meta
+                title="Europe Street beat"
+                description="www.instagram.com"
+              />
+            </Card>
+          ))}
+        </HorizontalScrollList>
+
+
+
+        {/* <Input.Search
           className="iz-overviewList__search"
           placeholder="search..."
           value={this.state.searchData}
           onChange={this.handleChange}
         />
-        <div className="iz-overviewList__list">{this.renderList()}</div>
+        <div className="iz-overviewList__list">{this.renderList()}</div> */}
       </div>
     )
   }
@@ -48,8 +83,6 @@ class HomeView extends Component {
         </div>
       )
     }
-
-    console.log(posts)
 
     return <Empty />
   }
