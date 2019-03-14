@@ -75,6 +75,14 @@
 //
 // -----------------------------------------------------------------------------
 
+@mixin horizontal-center($position: relative, $rotate: 0) {
+  position: $position;
+  left: 50%;
+  -webkit-transform: translateY(-50%) rotate($rotate);
+  -ms-transform: translateY(-50%) rotate($rotate);
+  transform: translateY(-50%) rotate($rotate);
+}
+
 @mixin vertical-center($position: relative, $rotate: 0) {
   position: $position;
   top: 50%;

@@ -28,7 +28,7 @@ class NavigationComponent extends Component {
     const { drawerVisible } = this.state;
     const isLoggedIn = localStorage.getItem('isAuth');
 
-    if (isLoggedIn === true) {
+    if (isLoggedIn === 'true') {
       return (
         <div className="iz-navigation">
 

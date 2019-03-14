@@ -33,10 +33,8 @@ class App extends Component {
           <Chrome>
             <main>
               <Switch>
-                { isLoggedIn === 'true'
-                  ? <Route exact strict path="/" component={Home} />
-                  : <Route strict path="/" component={Login} />
-                }
+                <Route exact strict path="/" component={Home} />
+                <Route exact strict path="/login" component={Login} />
                 <Route path="/:id/detail" component={Detail} />
                 <Route component={NotFound} />
               </Switch>
