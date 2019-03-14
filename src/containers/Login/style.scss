@@ -6,11 +6,11 @@
 
   @include center-center(absolute);
 
-  width: 500px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   border-radius: 3px;
   border: 1px solid rgba($color: gray, $alpha: 0.6);
-  background-color: rgba($color: lightgray, $alpha: 0.6);
+  background-color: #FAFAFA;
 
   display: flex;
   justify-content: center;
@@ -20,4 +20,29 @@
     width: 80%;
     @include font-size(14)
   }
+
+  &__logo {
+    width: 220px;
+    margin-bottom: 100px;
+  }
+
+  &__forgot-password {
+    margin-top: 50px;
+  }
+
+  &__submit {
+    margin-top: 50px;
+    background-color: #F8991D;
+    color: white;
+    @include font-size(20);
+    font-weight: bold;
+    border: none;
+  }
+
+  &__back {
+    position: absolute;
+    @include font-size(20);
+    top: 35px;
+  }
+
 }
