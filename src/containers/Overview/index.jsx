@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 import { AppContext } from './../App/index';
 import HomeView from '../../implementations/Home/HomeView';
+import OverviewList from './../../implementations/Overview/OverviewList/index';
 
-class Home extends Component {
-  async componentDidMount() {
-    await getOneProduct(this.props.match.params.id).then(this.setPosts)
-    this.setState({ loading: false })
-}
-
-setPosts = response => {
-    this.setState({
-        post: response.items[0].fields,
-    })
-}
+class Overview extends Component {
   render() {
     return (
       <React.Fragment>
         <AppContext.Consumer>{({ temp, changeTemp }) => Home}</AppContext.Consumer>
         <div>
-          <HomeView />
+          <OverviewList />
         </div>
       </React.Fragment>
     );
   }
 }
 
-export default Home;
+export default Overview;

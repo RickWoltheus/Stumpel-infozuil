@@ -7,6 +7,7 @@ import Login from '../Login';
 import Detail from '../Detail';
 
 import { Chrome } from '../../implementations';
+import Overview from '../Overview';
 
 const defaultAppState = {
   temp: 1,
@@ -33,10 +34,11 @@ class App extends Component {
           <Chrome>
             <main>
               <Switch>
-                { isLoggedIn === 'true'
+                {isLoggedIn === 'true'
                   ? <Route exact strict path="/" component={Home} />
                   : <Route strict path="/" component={Login} />
                 }
+                <Route path="/:cat/overview" component={Overview} />
                 <Route path="/:id/detail" component={Detail} />
                 <Route component={NotFound} />
               </Switch>
@@ -47,9 +49,9 @@ class App extends Component {
     );
   }
 
-    handleChangeTemp = () => {
-      this.setState({ temp: this.state.temp + 1 });
-    }
+  handleChangeTemp = () => {
+    this.setState({ temp: this.state.temp + 1 });
+  }
 }
 
 export default App;
