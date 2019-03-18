@@ -6,6 +6,7 @@ import { Row, Col, Spin, Empty, Carousel, Button, Card } from 'antd';
 import HorizontalScrollList from './../../../components/HorizontalScrollList/index';
 import Title from './../../../components/Typography/Title/index';
 import { Link } from 'react-router-dom'
+import StumpelCard from './../../../components/StumpelCard/index';
 
 
 class HomeView extends Component {
@@ -33,14 +34,14 @@ class HomeView extends Component {
         </Carousel>
         <div className="iz-home__content-container">
           <Row type={'flex'} gutter={14} justify={'space-between'} style={{ marginTop: 16 }} >
-            < Col span={11}>
+            < Col span={12}>
               <Link to={'/categories'}>
-                <Button type={'primary'} block>Categorieen</Button>
+                <Button size={'large'} type={'primary'} block>Categorieen</Button>
               </Link>
             </Col>
-            <Col span={11}>
+            <Col span={12}>
               <Link to={'/login'}>
-                <Button type={'primary'} block>Inloggen</Button>
+                <Button size={'large'} type={'primary'} block>Inloggen</Button>
               </Link>
             </Col>
           </Row>
@@ -52,18 +53,16 @@ class HomeView extends Component {
           <div style={{ marginTop: 16 }}>
             <HorizontalScrollList>
               {posts.map(post => (
-                <Link key={post.sys.id} to={`${post.sys.id}/detail`}>
-                  <Card
-                    hoverable
-                    style={{ width: 240, marginLeft: 16 }}
-                    cover={<img alt="example" src={post.fields.bookCover.fields.file.url} />}
-                  >
-                    <Card.Meta
+                <div style={{ paddingLeft: 8, marginRight: 8 }}>
+                  <Link key={post.sys.id} to={`${post.sys.id}/detail`}>
+                    <StumpelCard
                       title={post.fields.title}
-                      description={post.fields.price}
+                      image={post.fields.bookCover.fields.file.url}
+                      price={post.fields.price}
                     />
-                  </Card>
-                </Link>
+                  </Link>
+
+                </div>
               ))}
             </HorizontalScrollList>
           </div>
