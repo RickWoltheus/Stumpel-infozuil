@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 import './style.scss'
+
 import { Row, Col, Spin, Empty, Carousel, Button, Card } from 'antd';
+import HorizontalScrollList from './../../../components/HorizontalScrollList/index';
 
 
 class HomeView extends Component {
@@ -49,6 +51,7 @@ class HomeView extends Component {
             </Card>
           ))}
         </HorizontalScrollList>
+        <Button type={'primary'} block>Bekijk alle aanbiedingen</Button>
 
 
 

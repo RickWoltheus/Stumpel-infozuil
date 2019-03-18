@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import '.style.scss'
+import './style.scss'
 
-export default class HorizontalScrollList extends Component {
+class HorizontalScrollList extends Component {
   render() {
     return (
       <div className={'iz-horizontalScrollList'}>
