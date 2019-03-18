@@ -7,9 +7,11 @@ import Login from '../Login';
 import Detail from '../Detail';
 
 import { Chrome } from '../../implementations';
+import Overview from '../Overview';
 
 const defaultAppState = {
-  temp: 1,
+  posts: [],
+  carousel: []
 };
 
 export const AppContext = React.createContext(defaultAppState);
@@ -26,15 +28,18 @@ class App extends Component {
 
     const isLoggedIn = localStorage.getItem('isAuth');
 
-
     return (
-      <AppContext.Provider value={this.state}>
+      <AppContext.Provider value={{
+        ...this.state,
+        onChangeValues: this.handleChangeValues
+      }}>
         <div className="App">
           <Chrome>
             <main>
               <Switch>
                 <Route exact strict path="/" component={Home} />
                 <Route exact strict path="/login" component={Login} />
+                <Route path="/:cat/overview" component={Overview} />
                 <Route path="/:id/detail" component={Detail} />
                 <Route component={NotFound} />
               </Switch>
@@ -45,9 +50,9 @@ class App extends Component {
     );
   }
 
-    handleChangeTemp = () => {
-      this.setState({ temp: this.state.temp + 1 });
-    }
+  handleChangeValues = (values) => {
+    this.setState(values);
+  }
 }
 
 export default App;

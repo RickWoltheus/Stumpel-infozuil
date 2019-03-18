@@ -11,3 +11,17 @@ export async function getOneProduct(id) {
       content_type: 'book',
   })
 }
+
+export async function getAllProducts(searchData = null) {
+  return await client.getEntries({
+    'fields.title': searchData,
+    content_type: 'book',
+})
+}
+
+export async function getAllCarouselItems(searchData = null) {
+  return await client.getEntries({
+    content_type: 'carousel',
+})
+}
+
