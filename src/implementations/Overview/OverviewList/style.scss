@@ -2,6 +2,7 @@
 @import '../../../styles/assets/mixins';
 
 .iz-overviewList {
+
     padding: 20px 10px 0px 10px;
     &__search {
         padding-bottom: 20px;
@@ -11,10 +12,10 @@
         }
     }
     &__list {
-        // display: flex;
-        // flex-direction: row;
-        justify-content: center;
-        overflow: scroll;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
     &--loading {
         @include center-center(absolute);
