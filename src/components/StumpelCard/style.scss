@@ -1,0 +1,36 @@
+.iz-StumpelCard {
+  height: 242px;
+  width: 146px;
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.18);
+  border-radius: 7px;
+  margin-bottom: 4px;
+  padding-left: 7px;
+  padding-right: 7px;
+position: relative;
+  &__image-container {
+    display: flex;
+    justify-content: center;
+    height: 143px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__title {
+    margin-top: 11px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__price {
+    color: #1A3D73;
+    font-size: 15px;
+  }
+
+  &__bottom-bar {
+    position: absolute;
+    padding-bottom: 12px;
+    bottom: 0;
+  }
+}
