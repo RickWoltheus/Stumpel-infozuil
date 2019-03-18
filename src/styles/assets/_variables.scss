@@ -44,10 +44,12 @@ $normal-down: 'screen and (max-width: #{$screen-lg-max})';
 //
 // -----------------------------------------------------------------------------
 
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+
 // Primary fonts will be used for 90% of the text styles, mainly body text.
 // Secondary fonts will be used mainly for headings.
-$font--primary: 'Roboto', Helvetica, Arial, sans-serif;
-$font--secondary: 'Helvetica', Arial, sans-serif;
+$font--primary: 'Lato', sans-serif;
+// $font--secondary: 'Helvetica', Arial, sans-serif;
 
 // MOBILE: Font sizes (in pixels) / line-heights
 $font-size--h1: 30;

@@ -26,20 +26,15 @@ class NavigationComponent extends Component {
   render() {
     const { children } = this.props;
     const { drawerVisible } = this.state;
-    const isLoggedIn = localStorage.getItem('isAuth');
 
-    if (isLoggedIn === true) {
-      return (
-        <div className="iz-navigation">
+    return (
+      <div className="iz-navigation">
 
-          <div className="iz-navigation__content">{children}</div>
+        <div className="iz-navigation__content">{children}</div>
 
-          <div className="iz-navigation__bottom">{this.renderNavItems()}</div>
-        </div>
-      );
-    } else {
-      return <div className="iz-navigation__content">{children}</div>;
-    }
+        <div className="iz-navigation__bottom">{this.renderNavItems()}</div>
+      </div>
+    );
   }
 
   renderNavItems() {
@@ -48,7 +43,6 @@ class NavigationComponent extends Component {
     return config.map((item, index, array) => (
       <NavItem
         key={`${index}-${array.length}`}
-        label={item.name}
         linkTo={item.link}
         iconType={item.icon}
         active={currentPath === item.link}

@@ -1,96 +1,94 @@
-import React, { Component } from 'react'
-import * as contentful from 'contentful'
+import React, { Component } from 'react';
+import * as contentful from 'contentful';
 
-import './style.scss'
-import { Spin, Input, Col, Row } from 'antd'
-import OverviewListItem from '../OverviewListItem'
+import './style.scss';
+import { Spin, Input, Col, Row } from 'antd';
+import OverviewListItem from '../OverviewListItem';
 
 class OverviewList extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            posts: [],
-            loading: true,
-            searchData: null,
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.setNewData = this.setNewData.bind(this)
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+      loading: true,
+      searchData: null,
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.setNewData = this.setNewData.bind(this);
+  }
 
     client = contentful.createClient({
-        space: process.env.REACT_APP_CONTENFULL_SPACE_ID,
-        accessToken: process.env.REACT_APP_ACCESS_TOKEN,
+      space: process.env.REACT_APP_CONTENFULL_SPACE_ID,
+      accessToken: process.env.REACT_APP_ACCESS_TOKEN,
     })
 
     async componentDidMount() {
-        await this.fetchPosts().then(this.setPosts)
-        this.setState({ loading: false })
+      await this.fetchPosts().then(this.setPosts);
+      this.setState({ loading: false });
     }
 
     async handleChange(event) {
-        await this.setState({
-            searchData: event.target.value,
-        })
-        this.setNewData()
+      await this.setState({
+        searchData: event.target.value,
+      });
+      this.setNewData();
     }
 
     async setNewData() {
-        await this.fetchPosts().then(this.setPosts)
+      await this.fetchPosts().then(this.setPosts);
     }
 
     fetchPosts = () =>
-        this.client.getEntries({
-            'fields.title': this.state.searchData,
-            content_type: 'book',
-        })
+      this.client.getEntries({
+        'fields.title': this.state.searchData,
+        content_type: 'book',
+      })
 
-    setPosts = response => {
-        this.setState({
-            posts: response.items,
-        })
+    setPosts = (response) => {
+      this.setState({
+        posts: response.items,
+      });
     }
 
     render() {
-        return (
-            <div className="iz-overviewList">
-                <Input.Search
-                    className="iz-overviewList__search"
-                    placeholder="search..."
-                    value={this.state.searchData}
-                    onChange={this.handleChange}
-                />
-                <div className="iz-overviewList__list">{this.renderList()}</div>
-            </div>
-        )
+      return (
+        <div className="iz-overviewList">
+          <Input.Search
+            className="iz-overviewList__search"
+            placeholder="search..."
+            value={this.state.searchData}
+            onChange={this.handleChange}
+          />
+          <div className="iz-overviewList__list">{this.renderList()}</div>
+        </div>
+      );
     }
 
     renderList() {
-        const { posts, loading } = this.state
+      const { posts, loading } = this.state;
 
-        if (loading) {
-            return (
-                <Row type="flex" align="middle">
-                    <Col>
-                        <Spin />
-                    </Col>
-                </Row>
-            )
-        }
+      if (loading) {
+        return (
+          <Row type="flex" align="middle">
+            <Col>
+              <Spin />
+            </Col>
+          </Row>
+        );
+      }
 
-        if (!posts.length) {
-            return (
-                <div className="iz-overviewList--loading">
-                    <Spin size="large" />
-                </div>
-            )
-        }
+      if (!posts.length) {
+        return (
+          <div className="iz-overviewList--loading">
+            <Spin size="large" />
+          </div>
+        );
+      }
 
-        console.log(posts)
-
-        return posts.map(({ fields, sys }, i) => (
-            <OverviewListItem key={i} id={sys.id} {...fields} />
-        ))
+      return posts.map(({ fields, sys }, i) => (
+        <OverviewListItem key={i} id={sys.id} {...fields} />
+      ));
     }
 }
 
-export default OverviewList
+export default OverviewList;
