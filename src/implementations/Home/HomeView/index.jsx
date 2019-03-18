@@ -4,6 +4,7 @@ import './style.scss'
 
 import { Row, Col, Spin, Empty, Carousel, Button, Card } from 'antd';
 import HorizontalScrollList from './../../../components/HorizontalScrollList/index';
+import Title from './../../../components/Typography/Title/index';
 
 
 class HomeView extends Component {
@@ -37,6 +38,8 @@ class HomeView extends Component {
             <Button type={'primary'} block>Inloggen</Button>
           </Col>
         </Row>
+        <Title moreLink={'bla'}>Top boeken</Title>
+
         <HorizontalScrollList>
           {posts.map(post => (
             <Card
