@@ -24,7 +24,13 @@ class Login extends Component {
     }
 
     localStorage.setItem('isAuth', true);
-    document.location.reload();
+    this.props.history.push('/');
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem('isAuth') === 'true') {
+      this.props.history.push('/');
+    }
   }
 
   render() {

@@ -80,12 +80,10 @@ class OverviewList extends Component {
       if (!posts.length) {
         return (
           <div className="iz-overviewList--loading">
-                <Spin size="large" />
-              </div>
+            <Spin size="large" />
+          </div>
         );
       }
-
-      console.log(posts);
 
       return posts.map(({ fields, sys }, i) => (
         <OverviewListItem key={i} id={sys.id} {...fields} />
