@@ -17,5 +17,22 @@
         height: 70px;
         align-self: flex-end;
         align-items: center;
+        background-color: #ffffff;
+    }
+    &__topBar {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      height: 109px;
+      padding: 0 16px 0 16px;
+    }
+    &__logo {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: auto;
+      height: 100%;
     }
 }

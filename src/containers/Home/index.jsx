@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { AppContext } from './../App/index';
 import HomeView from '../../implementations/Home/HomeView';
 import { getAllProducts, getAllCarouselItems } from '../../service/ProductService';
+import { ChromeContext } from './../../implementations/Navigation/Chrome/index';
+import history from './../../index';
+import RoundIcon from './../../components/RoundIcon/index';
+import SideBarButton from './../../components/SideBarButton/index';
 
 class HomeComponent extends Component {
 
@@ -16,7 +20,13 @@ class HomeComponent extends Component {
   }
 
   async componentDidMount() {
-    const { onChangeValues } = this.props
+    const { onChangeValues, configTopBar } = this.props
+
+    configTopBar({
+      renderLeft: () => <SideBarButton />,
+      renderRight: () => <RoundIcon color={'#1A3D73'} type={'search'} />,
+      showLogo: true,
+    })
 
     Promise.all([
       await getAllProducts(),
@@ -37,6 +47,8 @@ class HomeComponent extends Component {
     this.setState(value)
   }
 
+
+
   render() {
     const { contextPosts } = this.props
     const { posts, carousel } = this.state
@@ -51,9 +63,20 @@ class HomeComponent extends Component {
 }
 
 const Home = () => (
-  <AppContext.Consumer>
-    {({ posts, carousel, onChangeValues }) => <HomeComponent posts={posts} carousel={carousel} onChangeValues={onChangeValues} />}
-  </AppContext.Consumer>
+  <ChromeContext.Consumer>
+    {({ configTopBar }) => (
+      <AppContext.Consumer>
+        {({ posts, carousel, onChangeValues }) => (
+          <HomeComponent
+            posts={posts}
+            carousel={carousel}
+            onChangeValues={onChangeValues}
+            configTopBar={configTopBar}
+          />
+        )}
+      </AppContext.Consumer>
+    )}
+  </ChromeContext.Consumer>
 )
 
 export default Home;
