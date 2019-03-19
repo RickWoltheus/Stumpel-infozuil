@@ -3,9 +3,15 @@ import * as contentful from 'contentful';
 
 import './style.scss';
 import { Spin, Input, Col, Row } from 'antd';
+import { withRouter } from 'react-router-dom';
 import OverviewListItem from '../OverviewListItem';
+import { getGenre } from '../../../service/ProductService';
 
-class OverviewList extends Component {
+
+const OverviewList = withRouter((props) => <OverviewListComponent {...props} />);
+
+
+class OverviewListComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +29,7 @@ class OverviewList extends Component {
     })
 
     async componentDidMount() {
-      await this.fetchPosts().then(this.setPosts);
+      await getGenre(this.props.match.params.cat).then(this.setPosts);
       this.setState({ loading: false });
     }
 
@@ -38,17 +44,18 @@ class OverviewList extends Component {
       await this.fetchPosts().then(this.setPosts);
     }
 
-    fetchPosts = () =>
-      this.client.getEntries({
-        'fields.title': this.state.searchData,
-        content_type: 'book',
-      })
-
     setPosts = (response) => {
       this.setState({
         posts: response.items,
       });
     }
+
+    fetchPosts = () =>
+      this.client.getEntries({
+        'fields.title': this.state.searchData,
+        'fields.genre': this.props.match.params.cat,
+        content_type: 'book',
+      })
 
     render() {
       return (
