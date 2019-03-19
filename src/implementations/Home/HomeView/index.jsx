@@ -7,6 +7,7 @@ import HorizontalScrollList from './../../../components/HorizontalScrollList/ind
 import Title from './../../../components/Typography/Title/index';
 import { Link } from 'react-router-dom'
 import StumpelCard from './../../../components/StumpelCard/index';
+import SideBarButton from '../../../components/SideBarButton';
 
 
 class HomeView extends Component {
@@ -35,9 +36,9 @@ class HomeView extends Component {
         <div className="iz-home__content-container">
           <Row type={'flex'} gutter={14} justify={'space-between'} style={{ marginTop: 16 }} >
             < Col span={12}>
-              <Link to={'/categories'}>
+              <SideBarButton>
                 <Button size={'large'} type={'primary'} block>Categorieen</Button>
-              </Link>
+              </SideBarButton>
             </Col>
             <Col span={12}>
               <Link to={'/login'}>

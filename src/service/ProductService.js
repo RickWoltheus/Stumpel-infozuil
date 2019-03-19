@@ -20,6 +20,31 @@ export async function getGenre(genre) {
   });
 }
 
+export function getAllGenres() {
+  return [
+    'thrillers',
+    'literatuur',
+    'kookboeken',
+    'kinderboeken',
+    'fantasy',
+    'young_adults',
+    'gezondheid_zwangerschap_psychologie',
+    'computer_internet',
+    'kunst_cultuur',
+    'business_management',
+    'esoterie_spiritualiteit',
+    'natuur_tuinieren',
+    'religie_filosofie',
+    'studie_schoolboeken',
+    'wonen_lifestyle',
+    'stripboeken',
+    'other',
+    'sport_hobby',
+    'reisgidsen_taalgidsen'
+  ]
+
+}
+
 export async function getAllProducts(searchData = null) {
   return await client.getEntries({
     'fields.title': searchData,
