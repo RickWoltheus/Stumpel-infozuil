@@ -11,7 +11,7 @@ import Overview from '../Overview';
 
 const defaultAppState = {
   posts: [],
-  carousel: []
+  carousel: [],
 };
 
 export const AppContext = React.createContext(defaultAppState);
@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <AppContext.Provider value={{
         ...this.state,
-        onChangeValues: this.handleChangeValues
+        onChangeValues: this.handleChangeValues,
       }}>
         <div className="App">
           <Chrome>
@@ -39,8 +39,9 @@ class App extends Component {
               <Switch>
                 <Route exact strict path="/" component={Home} />
                 <Route exact strict path="/login" component={Login} />
-                <Route path="/:cat/overview" component={Overview} />
-                <Route path="/:id/detail" component={Detail} />
+                <Route path="/categories/:cat/overview" component={Overview} />
+                <Route path="/categories/:cat/:id" component={Detail} />
+                <Route path="/:id/" component={Detail} />
                 <Route component={NotFound} />
               </Switch>
             </main>
