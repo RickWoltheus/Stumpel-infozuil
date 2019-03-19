@@ -27,7 +27,7 @@ class HomeView extends Component {
     return (
       <div className="iz-home">
 
-        <Carousel loading={!carousel.length} autoplay>
+        <Carousel style={{ height: 200 }} loading={!carousel.length} autoplay>
           {carousel && carousel.map((item, i) => {
             const src = item.fields.picture.fields.file.url
             return (<img key={i} style={{ width: '100%' }} src={`https:${src}`} alt="carousel" />)
@@ -42,7 +42,7 @@ class HomeView extends Component {
             </Col>
             <Col span={12}>
               <Link to={'/login'}>
-                <Button size={'large'} type={'primary'} block>Inloggen</Button>
+                <Button size={'large'} type={'primary'} disabled={!!localStorage.getItem('isAuth')} block>Inloggen</Button>
               </Link>
             </Col>
           </Row>
@@ -54,7 +54,7 @@ class HomeView extends Component {
           <div style={{ marginTop: 16 }}>
             <HorizontalScrollList>
               {posts.map(post => (
-                <div style={{ paddingLeft: 8, marginRight: 8 }}>
+                <div key={post.sys.id} style={{ paddingLeft: 8, marginRight: 8 }}>
                   <Link key={post.sys.id} to={`${post.sys.id}/detail`}>
                     <StumpelCard
                       title={post.fields.title}

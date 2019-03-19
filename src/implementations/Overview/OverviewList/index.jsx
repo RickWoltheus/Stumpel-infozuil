@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as contentful from 'contentful';
 
 import './style.scss';
-import { Spin, Input, Col, Row } from 'antd';
+import { Spin, Input, Col, Row, Empty } from 'antd';
 import { withRouter } from 'react-router-dom';
 import OverviewListItem from '../OverviewListItem';
 import { getGenre } from '../../../service/ProductService';
@@ -87,7 +87,7 @@ class OverviewListComponent extends Component {
     if (!posts.length) {
       return (
         <div className="iz-overviewList--loading">
-          <Spin size="large" />
+          <Empty />
         </div>
       );
     }

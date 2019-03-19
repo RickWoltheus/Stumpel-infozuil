@@ -38,7 +38,7 @@ class SideBarButton extends Component {
             <Collapse.Panel header="School artikelen" key="3">
               Not available
             </Collapse.Panel>
-            <Collapse.Panel header="Hobby en vrije tijd" key="3">
+            <Collapse.Panel header="Hobby en vrije tijd" key="4">
               Not available
             </Collapse.Panel>
           </Collapse>
@@ -49,7 +49,6 @@ class SideBarButton extends Component {
 
   stripTitle(text) {
     const newText = text.replace(/\_/g, ' ')
-    console.log(newText)
     return newText.charAt(0).toUpperCase() + newText.slice(1);
   }
 
