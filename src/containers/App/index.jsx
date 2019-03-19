@@ -41,7 +41,7 @@ class App extends Component {
                 <Route exact strict path="/login" component={Login} />
                 <Route path="/categories/:cat/overview" component={Overview} />
                 <Route path="/categories/:cat/:id" component={Detail} />
-                <Route path="/:id/" component={Detail} />
+                <Route path="/:id/detail" component={Detail} />
                 <Route component={NotFound} />
               </Switch>
             </main>
