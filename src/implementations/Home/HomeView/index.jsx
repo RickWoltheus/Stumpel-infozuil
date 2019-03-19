@@ -7,6 +7,7 @@ import HorizontalScrollList from './../../../components/HorizontalScrollList/ind
 import Title from './../../../components/Typography/Title/index';
 import { Link } from 'react-router-dom'
 import StumpelCard from './../../../components/StumpelCard/index';
+import SideBarButton from '../../../components/SideBarButton';
 
 
 class HomeView extends Component {
@@ -26,7 +27,7 @@ class HomeView extends Component {
     return (
       <div className="iz-home">
 
-        <Carousel loading={!carousel.length} autoplay>
+        <Carousel style={{ height: 200 }} loading={!carousel.length} autoplay>
           {carousel && carousel.map((item, i) => {
             const src = item.fields.picture.fields.file.url
             return (<img key={i} style={{ width: '100%' }} src={`https:${src}`} alt="carousel" />)
@@ -35,13 +36,13 @@ class HomeView extends Component {
         <div className="iz-home__content-container">
           <Row type={'flex'} gutter={14} justify={'space-between'} style={{ marginTop: 16 }} >
             < Col span={12}>
-              <Link to={'/categories'}>
+              <SideBarButton>
                 <Button size={'large'} type={'primary'} block>Categorieen</Button>
-              </Link>
+              </SideBarButton>
             </Col>
             <Col span={12}>
               <Link to={'/login'}>
-                <Button size={'large'} type={'primary'} block>Inloggen</Button>
+                <Button size={'large'} type={'primary'} disabled={!!localStorage.getItem('isAuth')} block>Inloggen</Button>
               </Link>
             </Col>
           </Row>
@@ -53,7 +54,7 @@ class HomeView extends Component {
           <div style={{ marginTop: 16 }}>
             <HorizontalScrollList>
               {posts.map(post => (
-                <div style={{ paddingLeft: 8, marginRight: 8 }}>
+                <div key={post.sys.id} style={{ paddingLeft: 8, marginRight: 8 }}>
                   <Link key={post.sys.id} to={`${post.sys.id}/detail`}>
                     <StumpelCard
                       title={post.fields.title}
