@@ -1,48 +1,14 @@
 import React, { Component } from 'react';
 import './style.scss';
 
-import { Rate, Col, Row, Button, Spin, Empty } from 'antd';
+import { Rate, Col, Row, Button, Empty } from 'antd';
 import AvailabilityLabel from './../../../components/AvailabilityLabel/index';
-import { withRouter } from 'react-router-dom';
-import { getOneProduct } from '../../../service/ProductService';
 import { generateBTWPrice } from './../../../utils/price';
 
-const DetailPage = withRouter((props) => <DetailPageComponent {...props} />);
-
-class DetailPageComponent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      drawerVisible: false,
-      loading: true,
-      post: null,
-    };
-  }
-
-  async componentDidMount() {
-    await getOneProduct(this.props.match.params.id).then(this.setPosts);
-    this.setState({ loading: false });
-  }
-
-  setPosts = (response) => {
-    this.setState({
-      post: response.items[0].fields,
-    });
-  }
+class DetailPage extends Component {
 
   render() {
-    const { loading, post } = this.state;
-
-    if (loading) {
-      return (
-        <Row type="flex" align="middle">
-          <Col>
-            <Spin />
-          </Col>
-        </Row>
-      );
-    }
+    const { post } = this.props;
 
     if (!post) {
       return (
