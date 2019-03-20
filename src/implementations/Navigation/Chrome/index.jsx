@@ -57,6 +57,7 @@ class NavigationComponent extends Component {
             <div>
               {renderRight && renderRight()}
             </div>
+
           </div>
 
           <div className="iz-navigation__content">{children}</div>

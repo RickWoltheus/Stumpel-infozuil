@@ -14,9 +14,8 @@ class HomeComponent extends Component {
     super(props)
 
     this.state = {
-      loading: true,
-      posts: [],
-      carousel: []
+      posts: this.props.posts,
+      carousel: this.props.carousel
     }
   }
 
@@ -33,8 +32,6 @@ class HomeComponent extends Component {
       await getAllProducts(),
       await getAllCarouselItems()
     ]).then((values) => this.setValues(values, onChangeValues));
-
-    this.setState({ loading: false })
   }
 
   setValues = (values, onChangeValues) => {
@@ -51,12 +48,11 @@ class HomeComponent extends Component {
 
 
   render() {
-    const { contextPosts } = this.props
     const { posts, carousel } = this.state
 
     return (
       <HomeView
-        posts={posts ? posts : contextPosts}
+        posts={posts}
         carousel={carousel}
       />
     )
