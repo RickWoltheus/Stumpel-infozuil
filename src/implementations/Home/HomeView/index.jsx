@@ -71,16 +71,6 @@ class HomeView extends Component {
             <Button type={'primary'} block>Bekijk alle aanbiedingen</Button>
           </div>
         </div>
-
-
-
-        {/* <Input.Search
-          className="iz-overviewList__search"
-          placeholder="search..."
-          value={this.state.searchData}
-          onChange={this.handleChange}
-        />
-        <div className="iz-overviewList__list">{this.renderList()}</div> */}
       </div >
     )
   }

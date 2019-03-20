@@ -7,6 +7,7 @@ import history from './../../index';
 import RoundIcon from './../../components/RoundIcon/index';
 import SideBarButton from './../../components/SideBarButton/index';
 import { Icon } from 'antd';
+import SearchButton from './../../components/SearchButton/index';
 
 class HomeComponent extends Component {
 
@@ -24,7 +25,7 @@ class HomeComponent extends Component {
 
     configTopBar({
       renderLeft: () => <SideBarButton><Icon type={'align-left'} /></SideBarButton>,
-      renderRight: () => <RoundIcon color={'#1A3D73'} type={'search'} />,
+      renderRight: () => <SearchButton />,
       showLogo: true,
     })
 

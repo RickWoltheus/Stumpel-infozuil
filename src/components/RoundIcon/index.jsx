@@ -6,10 +6,10 @@ import './style.scss'
 
 class RoundIcon extends Component {
   render() {
-    const { type, color } = this.props
+    const { type, color, onClick } = this.props
     return (
       <div style={{ backgroundColor: color }} className={'iz-RoundIcon'}>
-        <Icon type={type} />
+        <Icon onClick={onClick} type={type} />
       </div>
     )
   }
