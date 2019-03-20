@@ -10,55 +10,54 @@ import SideBarButton from './../../components/SideBarButton/index';
 class HomeComponent extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       loading: true,
       posts: [],
-      carousel: []
-    }
+      carousel: [],
+    };
   }
 
   async componentDidMount() {
-    const { onChangeValues, configTopBar } = this.props
+    const { onChangeValues, configTopBar } = this.props;
 
     configTopBar({
       renderLeft: () => <SideBarButton />,
-      renderRight: () => <RoundIcon color={'#1A3D73'} type={'search'} />,
+      renderRight: () => <RoundIcon color="#1A3D73" type="search" />,
       showLogo: true,
-    })
+    });
 
     Promise.all([
       await getAllProducts(),
-      await getAllCarouselItems()
+      await getAllCarouselItems(),
     ]).then((values) => this.setValues(values, onChangeValues));
 
-    this.setState({ loading: false })
+    this.setState({ loading: false });
   }
 
   setValues = (values, onChangeValues) => {
     const value = {
       posts: values[0].items,
-      carousel: values[1].items
-    }
+      carousel: values[1].items,
+    };
 
-    onChangeValues(value)
+    onChangeValues(value);
 
-    this.setState(value)
+    this.setState(value);
   }
 
 
-
   render() {
-    const { contextPosts } = this.props
-    const { posts, carousel } = this.state
+    const { contextPosts } = this.props;
+    const { posts, carousel } = this.state;
 
     return (
       <HomeView
-        posts={posts ? posts : contextPosts}
+        posts={posts || contextPosts}
         carousel={carousel}
       />
-    )
+    );
   }
 }
 
@@ -77,6 +76,6 @@ const Home = () => (
       </AppContext.Consumer>
     )}
   </ChromeContext.Consumer>
-)
+);
 
 export default Home;

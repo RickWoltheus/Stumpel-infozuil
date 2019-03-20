@@ -66,6 +66,7 @@ class OverviewListComponent extends Component {
             value={this.state.searchData}
             onChange={this.handleChange}
           />
+          {this.props.match.params.cat}
           <div className="iz-overviewList__list">{this.renderList()}</div>
         </div>
       );
@@ -73,7 +74,6 @@ class OverviewListComponent extends Component {
 
     renderList() {
       const { posts, loading } = this.state;
-
       if (loading) {
         return (
           <Row type="flex" align="middle">
@@ -93,7 +93,7 @@ class OverviewListComponent extends Component {
       }
 
       return posts.map(({ fields, sys }, i) => (
-        <OverviewListItem key={i} id={sys.id} {...fields} />
+        <OverviewListItem key={i} id={sys.id} {...fields} book={fields} />
       ));
     }
 }

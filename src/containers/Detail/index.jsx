@@ -8,48 +8,48 @@ import GoBackButton from './../../components/GoBackButton/index';
 
 class DetailView extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       loading: true,
       posts: [],
-      carousel: []
-    }
+      carousel: [],
+    };
   }
 
   async componentDidMount() {
-    const { onChangeValues, configTopBar } = this.props
+    const { onChangeValues, configTopBar } = this.props;
 
     configTopBar({
       renderLeft: () => <GoBackButton />,
-      renderRight: undefined,
+      renderRight: null,
       showLogo: true,
-    })
+    });
 
     Promise.all([
       await getAllProducts(),
     ]).then((values) => this.setValues(values, onChangeValues));
 
-    this.setState({ loading: false })
+    this.setState({ loading: false });
   }
 
   setValues = (values, onChangeValues) => {
     const value = {
       posts: values[0].items,
-      carousel: values[1].items
-    }
+      carousel: values[1].items,
+    };
 
-    onChangeValues(value)
+    onChangeValues(value);
 
-    this.setState(value)
+    this.setState(value);
   }
 
   render() {
-    const { contextPosts } = this.props
-    const { posts } = this.state
+    const { contextPosts } = this.props;
+    const { posts } = this.state;
 
     return (
-      <DetailPage data={posts ? posts : contextPosts} />
+      <DetailPage data={posts || contextPosts} />
     );
   }
 }
@@ -69,6 +69,6 @@ const Detail = () => (
       </AppContext.Consumer>
     )}
   </ChromeContext.Consumer>
-)
+);
 
 export default Detail;

@@ -1,0 +1,10 @@
+.container {
+  &.container--small {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &.container--large {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}

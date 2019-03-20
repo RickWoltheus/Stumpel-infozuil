@@ -1,4 +1,6 @@
 .iz-horizontalScrollList {
   display: flex;
   overflow: scroll;
+
+  -webkit-overflow-scrolling: touch;
 }

@@ -5,8 +5,7 @@ import StumpelCard from './../../../components/StumpelCard/index';
 
 class OverviewListItem extends Component {
   render() {
-    const { title, bookCover, id, price } = this.props;
-
+    const { title, bookCover, id, price, book } = this.props;
     return (
       <div className="iz-overview-list-item">
         <Link key={id} to={`${id}/detail`}>
@@ -14,6 +13,7 @@ class OverviewListItem extends Component {
             title={title}
             image={bookCover.fields.file.url}
             price={price}
+            book={book}
           />
         </Link>
       </div>
