@@ -7,9 +7,9 @@ import Login from '../Login';
 import Detail from '../Detail';
 import Cart from '../Cart';
 import Favourite from '../Favourite';
+import Overview from '../Overview';
 
 import { Chrome } from '../../implementations';
-import Overview from '../Overview';
 
 const defaultAppState = {
   posts: [],

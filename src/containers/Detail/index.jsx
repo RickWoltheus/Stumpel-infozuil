@@ -17,7 +17,8 @@ class DetailViewComponent extends React.Component {
 
     this.state = {
       loading: true,
-      posts: [],
+      posts: props.posts,
+      post: contextPost ? contextPost.fields : null,
       carousel: [],
     };
   }
@@ -28,7 +29,7 @@ class DetailViewComponent extends React.Component {
     configTopBar({
       renderLeft: () => <GoBackButton />,
       renderRight: null,
-      showLogo: true,
+      showLogo: false,
     });
 
     Promise.all([
@@ -39,25 +40,24 @@ class DetailViewComponent extends React.Component {
     this.setState({ loading: false });
   }
 
-  setValues = (values, onChangeValues) => {
-    const value = {
-      posts: values[0].items,
-      post: values[1].items[0].fields,
-    };
+ setValues = (values, onChangeValues) => {
+   const value = {
+     posts: values[0].items,
+     post: values[1].items[0].fields,
+   };
 
-    onChangeValues({ posts: values[0].items });
+   onChangeValues({ posts: values[0].items });
 
-    this.setState(value);
-  }
+   this.setState(value);
+ }
 
-  render() {
-    const { contextPosts } = this.props;
-    const { posts } = this.state;
+ render() {
+   const { post } = this.state;
 
-    return (
-      <DetailPage data={posts || contextPosts} />
-    );
-  }
+   return (
+     <DetailPage post={post} />
+   );
+ }
 }
 
 const Detail = () => (
