@@ -53,10 +53,11 @@ class NavigationComponent extends Component {
             <div>
               {renderLeft && renderLeft()}
             </div>
-            {showLogo && <img className="iz-navigation__logo" src={require('./../../../assets/images/logostumpel.jpg')} />}
+            {showLogo && <img className="iz-navigation__logo" src={require('./../../../assets/images/logostumpel.png')} />}
             <div>
               {renderRight && renderRight()}
             </div>
+
           </div>
 
           <div className="iz-navigation__content">{children}</div>

@@ -36,8 +36,6 @@ class App extends Component {
 
   render() {
 
-    const isLoggedIn = localStorage.getItem('isAuth');
-
     return (
       <AppContext.Provider value={{
         ...this.state,

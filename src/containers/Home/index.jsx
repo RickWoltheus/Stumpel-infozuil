@@ -6,6 +6,7 @@ import { ChromeContext } from './../../implementations/Navigation/Chrome/index';
 import history from './../../index';
 import RoundIcon from './../../components/RoundIcon/index';
 import SideBarButton from './../../components/SideBarButton/index';
+import { Icon } from 'antd';
 
 class HomeComponent extends Component {
 
@@ -13,9 +14,8 @@ class HomeComponent extends Component {
     super(props);
 
     this.state = {
-      loading: true,
-      posts: [],
-      carousel: [],
+      posts: this.props.posts,
+      carousel: this.props.carousel,
     };
   }
 
@@ -23,7 +23,7 @@ class HomeComponent extends Component {
     const { onChangeValues, configTopBar } = this.props;
 
     configTopBar({
-      renderLeft: () => <SideBarButton />,
+      renderLeft: () => <SideBarButton><Icon type="align-left" /></SideBarButton>,
       renderRight: () => <RoundIcon color="#1A3D73" type="search" />,
       showLogo: true,
     });
@@ -49,12 +49,11 @@ class HomeComponent extends Component {
 
 
   render() {
-    const { contextPosts } = this.props;
     const { posts, carousel } = this.state;
 
     return (
       <HomeView
-        posts={posts || contextPosts}
+        posts={posts}
         carousel={carousel}
       />
     );

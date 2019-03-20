@@ -1,14 +1,19 @@
 import React from 'react';
 import { AppContext } from './../App/index';
 import DetailPage from '../../implementations/Detail/DetailPage';
-import { getAllProducts } from '../../service/ProductService';
+import { getAllProducts, getOneProduct } from '../../service/ProductService';
 import { ChromeContext } from './../../implementations/Navigation/Chrome/index';
 import RoundIcon from './../../components/RoundIcon/index';
 import GoBackButton from './../../components/GoBackButton/index';
+import { withRouter } from 'react-router-dom';
 
-class DetailView extends React.Component {
+const DetailView = withRouter((props) => <DetailViewComponent {...props} />);
+
+class DetailViewComponent extends React.Component {
   constructor(props) {
     super(props);
+
+    const contextPost = props.posts.find((post) => post.sys.id === this.props.match.params.id);
 
     this.state = {
       loading: true,
@@ -28,6 +33,7 @@ class DetailView extends React.Component {
 
     Promise.all([
       await getAllProducts(),
+      await getOneProduct(this.props.match.params.id),
     ]).then((values) => this.setValues(values, onChangeValues));
 
     this.setState({ loading: false });
@@ -36,10 +42,10 @@ class DetailView extends React.Component {
   setValues = (values, onChangeValues) => {
     const value = {
       posts: values[0].items,
-      carousel: values[1].items,
+      post: values[1].items[0].fields,
     };
 
-    onChangeValues(value);
+    onChangeValues({ posts: values[0].items });
 
     this.setState(value);
   }
