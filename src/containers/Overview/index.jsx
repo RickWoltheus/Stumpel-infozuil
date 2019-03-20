@@ -8,12 +8,12 @@ import { ChromeContext } from './../../implementations/Navigation/Chrome/index';
 class OverviewView extends Component {
 
   componentDidMount() {
-    const { configTopBar } = this.props
+    const { configTopBar } = this.props;
     configTopBar({
       renderLeft: () => <GoBackButton />,
-      renderRight: () => <RoundIcon color={'#1A3D73'} type={'search'} />,
+      renderRight: () => <RoundIcon color="#1A3D73" type="search" />,
       showLogo: false,
-    })
+    });
   }
 
   render() {
@@ -31,6 +31,6 @@ const Overview = () => (
       />
     )}
   </ChromeContext.Consumer>
-)
+);
 
 export default Overview;

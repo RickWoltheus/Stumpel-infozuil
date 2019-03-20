@@ -1,62 +1,63 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import './style.scss'
+import './style.scss';
 
 import { Row, Col, Spin, Empty, Carousel, Button, Card } from 'antd';
 import HorizontalScrollList from './../../../components/HorizontalScrollList/index';
 import Title from './../../../components/Typography/Title/index';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import StumpelCard from './../../../components/StumpelCard/index';
 import SideBarButton from '../../../components/SideBarButton';
 
 
 class HomeView extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       loading: true,
       searchData: null,
-    }
+    };
     // this.handleChange = this.handleChange.bind(this)
     // this.setNewData = this.setNewData.bind(this)
   }
 
   render() {
-    const { posts, carousel } = this.props
+    const { posts, carousel } = this.props;
 
     return (
       <div className="iz-home">
 
         <Carousel style={{ height: 200 }} loading={!carousel.length} autoplay>
           {carousel && carousel.map((item, i) => {
-            const src = item.fields.picture.fields.file.url
-            return (<img key={i} style={{ width: '100%' }} src={`https:${src}`} alt="carousel" />)
+            const src = item.fields.picture.fields.file.url;
+            return (<img key={i} style={{ width: '100%' }} src={`https:${src}`} alt="carousel" />);
           })}
         </Carousel>
         <div className="iz-home__content-container">
-          <Row type={'flex'} gutter={14} justify={'space-between'} style={{ marginTop: 16 }} >
-            < Col span={12}>
+          <Row type="flex" gutter={14} justify="space-between" style={{ marginTop: 16 }} >
+            <Col span={12}>
               <SideBarButton>
-                <Button size={'large'} type={'primary'} block>Categorieen</Button>
+                <Button size="large" type="primary" block>Categorieen</Button>
               </SideBarButton>
             </Col>
             <Col span={12}>
-              <Link to={'/login'}>
-                <Button size={'large'} type={'primary'} disabled={!!localStorage.getItem('isAuth')} block>Inloggen</Button>
+              <Link to="/login">
+                <Button size="large" type="primary" disabled={!!localStorage.getItem('isAuth')} block>Inloggen</Button>
               </Link>
             </Col>
           </Row>
 
           <div style={{ marginTop: 16 }}>
-            <Title moreLink={'bla'}>Top boeken</Title>
+            <Title moreLink="bla">Top boeken</Title>
           </div>
 
           <div style={{ marginTop: 16 }}>
             <HorizontalScrollList>
-              {posts.map(post => (
+              {posts.map((post) => (
                 <div key={post.sys.id} style={{ paddingLeft: 8, marginRight: 8 }}>
                   <Link key={post.sys.id} to={`${post.sys.id}/detail`}>
                     <StumpelCard
+                      book={post.fields}
                       title={post.fields.title}
                       image={post.fields.bookCover.fields.file.url}
                       price={post.fields.price}
@@ -68,10 +69,9 @@ class HomeView extends Component {
             </HorizontalScrollList>
           </div>
           <div style={{ marginTop: 16 }}>
-            <Button type={'primary'} block>Bekijk alle aanbiedingen</Button>
+            <Button type="primary" block>Bekijk alle aanbiedingen</Button>
           </div>
         </div>
-
 
 
         {/* <Input.Search
@@ -82,11 +82,11 @@ class HomeView extends Component {
         />
         <div className="iz-overviewList__list">{this.renderList()}</div> */}
       </div >
-    )
+    );
   }
 
   renderList() {
-    const { posts, loading } = this.state
+    const { posts, loading } = this.state;
 
     if (loading) {
       return (
@@ -95,7 +95,7 @@ class HomeView extends Component {
             <Spin />
           </Col>
         </Row>
-      )
+      );
     }
 
     if (!posts.length) {
@@ -103,11 +103,11 @@ class HomeView extends Component {
         <div className="iz-overviewList--loading">
           <Spin size="large" />
         </div>
-      )
+      );
     }
 
-    return <Empty />
+    return <Empty />;
   }
 }
 
-export default HomeView
+export default HomeView;

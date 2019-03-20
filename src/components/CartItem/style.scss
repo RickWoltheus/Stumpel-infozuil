@@ -1,0 +1,49 @@
+@import '../../styles/assets/variables';
+@import '../../styles/assets/mixins';
+
+.iz-CartItem {
+  height: 250px;
+  width: 100%;
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: row;
+  border-radius: 7px;
+  margin-bottom: 30px;
+  padding-left: 7px;
+  padding-right: 7px;
+position: relative;
+  &__image-container {
+    width: 100%;
+    position: relative;
+    height: 100%;
+
+    img {
+      height: 100%;
+    }
+  }
+  &__content {
+    margin-left: 20px;
+    position: relative;
+  }
+  &__author {
+    margin-top: 11px;
+    @include font-size(15);
+  }
+  &__title {
+
+    @include font-size(20);
+    width: 140px;
+    overflow: hidden;
+    font-weight: bold;
+    height: 60px;
+  }
+
+  &__price {
+    color: #1A3D73;
+    position: absolute;
+    bottom: 40px;
+    font-weight: bold;
+    @include font-size(20);
+  }
+
+}

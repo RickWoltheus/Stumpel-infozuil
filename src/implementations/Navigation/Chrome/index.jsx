@@ -7,16 +7,16 @@ import { withRouter } from 'react-router-dom';
 const config = [
   { name: 'home', link: '/', icon: iconType.home },
   { name: 'home', link: '/other', icon: 'search' },
-  { name: 'home', link: '/other2', icon: 'shopping-cart' },
-  { name: 'home', link: '/other3', icon: 'heart' },
-  { name: 'home', link: '/other3', icon: 'user' },
+  { name: 'home', link: '/cart', icon: 'shopping-cart' },
+  { name: 'home', link: '/favourites', icon: 'heart' },
+  { name: 'home', link: '/other4', icon: 'user' },
 ];
 
 const Chrome = withRouter((props) => <NavigationComponent {...props} />);
 
 const defaultState = {
-  renderLeft: undefined,
-  renderRight: undefined,
+  renderLeft: null,
+  renderRight: null,
   showLogo: false,
 
 };
@@ -36,24 +36,24 @@ class NavigationComponent extends Component {
 
   handleTopBarConfig = (config) => {
     this.setState({
-      topBarConfig: config
-    })
+      topBarConfig: config,
+    });
   }
 
   render() {
     const { children } = this.props;
-    const { renderLeft, renderRight, showLogo } = this.state.topBarConfig
+    const { renderLeft, renderRight, showLogo } = this.state.topBarConfig;
 
     return (
       <ChromeContext.Provider value={{
-        configTopBar: (config) => this.handleTopBarConfig(config)
+        configTopBar: (config) => this.handleTopBarConfig(config),
       }}>
         <div className="iz-navigation">
-          <div className={'iz-navigation__topBar'}>
+          <div className="iz-navigation__topBar">
             <div>
               {renderLeft && renderLeft()}
             </div>
-            {showLogo && <img className={'iz-navigation__logo'} src={require('./../../../assets/images/logostumpel.png')} />}
+            {showLogo && <img className="iz-navigation__logo" src={require('./../../../assets/images/logostumpel.png')} />}
             <div>
               {renderRight && renderRight()}
             </div>
